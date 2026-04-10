@@ -90,22 +90,13 @@
     100% { background-position: 200% 0; }
   }
 
-  @keyframes cube-rotate-y {
+  @keyframes cube-rotate {
     0% { transform: rotateX(-15deg) rotateY(0deg); }
     100% { transform: rotateX(-15deg) rotateY(360deg); }
   }
 
-  @keyframes cube-rotate-x {
-    0% { transform: rotateY(-15deg) rotateX(0deg); }
-    100% { transform: rotateY(-15deg) rotateX(360deg); }
-  }
-
-  .cube-rotate-y {
-    animation: cube-rotate-y 12s linear infinite;
-  }
-
-  .cube-rotate-x {
-    animation: cube-rotate-x 12s linear infinite;
+  .cube-rotate {
+    animation: cube-rotate 12s linear infinite;
   }
 
   .cube-paused {

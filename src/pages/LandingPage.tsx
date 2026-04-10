@@ -1,17 +1,9 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import throneImg from "@/assets/throne.png";
 import RotatingCube from "@/components/RotatingCube";
 import MusicPlayer from "@/components/MusicPlayer";
 
 const LandingPage = () => {
-  const [cubeAxis, setCubeAxis] = useState<"y" | "x">("y");
-
-  const toggleAxis = (e: React.MouseEvent | React.TouchEvent) => {
-    e.stopPropagation();
-    setCubeAxis((prev) => (prev === "y" ? "x" : "y"));
-  };
-
   return (
     <div className="min-h-screen bg-background flex flex-col items-center overflow-hidden touch-pinch-zoom">
       {/* Heading */}
@@ -37,16 +29,8 @@ const LandingPage = () => {
           />
           {/* Cube positioned in the throne seat */}
           <div className="absolute" style={{ top: "45%", left: "50%", transform: "translate(-50%, -50%)" }}>
-            <RotatingCube axis={cubeAxis} />
+            <RotatingCube />
           </div>
-          {/* Tappable footstool area below the seat */}
-          <div
-            className="absolute cursor-pointer"
-            style={{ bottom: "2%", left: "30%", width: "40%", height: "12%" }}
-            onClick={toggleAxis}
-            onTouchStart={toggleAxis}
-            title="Tap to change cube rotation direction"
-          />
         </div>
       </div>
 
