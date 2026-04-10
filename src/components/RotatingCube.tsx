@@ -6,7 +6,11 @@ import cubeFace4 from "@/assets/cube-face-4.jpeg";
 import cubeFace5 from "@/assets/cube-face-5.jpeg";
 import cubeFace6 from "@/assets/cube-face-6.png";
 
-const RotatingCube = () => {
+interface RotatingCubeProps {
+  axis?: "y" | "x";
+}
+
+const RotatingCube = ({ axis = "y" }: RotatingCubeProps) => {
   const [paused, setPaused] = useState(false);
   const togglePause = () => setPaused((p) => !p);
 
@@ -30,7 +34,7 @@ const RotatingCube = () => {
       onTouchStart={togglePause}
     >
       <div
-        className={`cube-rotate ${paused ? "cube-paused" : ""}`}
+        className={`cube-rotate-${axis} ${paused ? "cube-paused" : ""}`}
         style={{
           width: size,
           height: size,
