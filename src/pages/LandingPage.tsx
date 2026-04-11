@@ -5,7 +5,7 @@ import MusicPlayer from "@/components/MusicPlayer";
 
 const LandingPage = () => {
   return (
-    <div className="min-h-screen bg-background flex flex-col items-center overflow-hidden touch-pinch-zoom">
+    <div className="min-h-screen bg-background flex flex-col items-center overflow-hidden touch-pinch-zoom animate-fade-in">
       {/* Heading */}
       <div className="pt-8 sm:pt-12 text-center">
         <h1 className="font-display text-4xl sm:text-5xl md:text-7xl tracking-wider">
