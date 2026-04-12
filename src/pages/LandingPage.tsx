@@ -28,7 +28,7 @@ const LandingPage = () => {
             className="w-full max-w-lg object-contain"
           />
           {/* Cube positioned in the throne seat */}
-          <div className="absolute" style={{ top: "45%", left: "50%", transform: "translate(-50%, -50%)" }}>
+          <div className="absolute" style={{ top: "38%", left: "50%", transform: "translate(-50%, -50%)" }}>
             <RotatingCube />
           </div>
         </div>
