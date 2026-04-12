@@ -17,6 +17,12 @@ const MusicPlayer = ({ justify = "center" }: MusicPlayerProps) => {
     }
   }, [volume]);
 
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.play().then(() => setPlaying(true)).catch(() => {});
+    }
+  }, []);
+
   const toggle = () => {
     if (!audioRef.current) return;
     if (playing) {
