@@ -40,7 +40,7 @@ const MusicPlayer = ({ justify = "center" }: MusicPlayerProps) => {
       }`}
     >
       {/* Replace src with your music track */}
-      <audio ref={audioRef} loop preload="none" />
+      <audio ref={audioRef} src="/audio/smooth-ember.mp3" loop preload="none" />
       <button
         onClick={toggle}
         className="p-2 rounded-full border border-gold/40 text-gold hover:bg-gold/10 transition-colors"
