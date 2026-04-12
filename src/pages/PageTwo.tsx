@@ -45,7 +45,7 @@ const PageTwo = () => {
           <Link to="/page-three" className="text-gold text-sm hover:underline font-display">
             Next →
           </Link>
-          <MusicPlayer justify="right" />
+          <MusicPlayer justify="right" src="/audio/smooth-ember-2.mp3" />
         </div>
       </div>
     </div>

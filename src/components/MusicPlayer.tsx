@@ -3,9 +3,10 @@ import { Play, Pause, Volume2, VolumeX } from "lucide-react";
 
 interface MusicPlayerProps {
   justify?: "center" | "right";
+  src?: string;
 }
 
-const MusicPlayer = ({ justify = "center" }: MusicPlayerProps) => {
+const MusicPlayer = ({ justify = "center", src = "/audio/smooth-ember.mp3" }: MusicPlayerProps) => {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [playing, setPlaying] = useState(false);
   const [volume, setVolume] = useState(0.2);
@@ -46,7 +47,7 @@ const MusicPlayer = ({ justify = "center" }: MusicPlayerProps) => {
       }`}
     >
       {/* Replace src with your music track */}
-      <audio ref={audioRef} src="/audio/smooth-ember.mp3" loop preload="none" />
+      <audio ref={audioRef} src={src} loop preload="none" />
       <button
         onClick={toggle}
         className="p-2 rounded-full border border-gold/40 text-gold hover:bg-gold/10 transition-colors"
