@@ -15,8 +15,8 @@ const PageTwo = () => {
       <div className="flex-1 flex flex-col gap-8 p-6 sm:p-10 max-w-6xl mx-auto w-full">
         {/* Tile 1 - Image/Video left, text right */}
         <div className="flex flex-col sm:flex-row gap-6">
-          <div className="sm:w-1/2 aspect-video bg-muted rounded-lg border border-gold/20 flex items-center justify-center">
-            <span className="text-muted-foreground text-sm">Insert image or video</span>
+          <div className="sm:w-1/2 aspect-video rounded-lg border border-gold/20 overflow-hidden">
+            <img src="/images/page-two-tile1.jpg" alt="Studio portrait" className="w-full h-full object-cover" />
           </div>
           <div className="sm:w-1/2 flex items-center">
             <div className="w-full p-4 bg-card rounded-lg border border-border min-h-[120px]">
