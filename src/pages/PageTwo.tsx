@@ -27,8 +27,8 @@ const PageTwo = () => {
 
         {/* Tile 2 - Text left, Image/Video right */}
         <div className="flex flex-col sm:flex-row-reverse gap-6">
-          <div className="sm:w-1/2 aspect-video bg-muted rounded-lg border border-gold/20 flex items-center justify-center">
-            <span className="text-muted-foreground text-sm">Insert image or video</span>
+          <div className="sm:w-1/2 aspect-video rounded-lg border border-gold/20 overflow-hidden">
+            <img src="/images/page-two-tile2.jpg" alt="Currency conspiracy collage" className="w-full h-full object-cover" />
           </div>
           <div className="sm:w-1/2 flex items-center">
             <div className="w-full p-4 bg-card rounded-lg border border-border min-h-[120px]">
