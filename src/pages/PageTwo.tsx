@@ -20,7 +20,7 @@ const PageTwo = () => {
           </div>
           <div className="sm:w-1/2 flex items-center">
             <div className="w-full p-4 bg-card rounded-lg border border-border min-h-[120px] flex items-center justify-center">
-              <p className="shimmer-gold font-display text-xl sm:text-2xl tracking-wider text-center leading-relaxed">Thug Life was a concubine, not the main Wife/, expecting, resurrecting truths at the 7th month, shedding his Lyme LIFE.</p>
+              <p className="shimmer-gold font-display text-xl sm:text-2xl tracking-wider text-center leading-relaxed">Thug Life was a concubine not the main Wife/ expecting resurrecting truths 7th month shedding his Lyme Life!</p>
             </div>
           </div>
         </div>
