@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const PageThree = () => {
   return (
-    <div className="min-h-screen bg-background flex flex-col touch-pinch-zoom animate-fade-in">
+    <div className="min-h-screen bg-background flex flex-col touch-pinch-zoom animate-fade-in-slow">
       {/* Header */}
       <div className="pt-6 px-6">
         <Link to="/page-two" className="shimmer-gold font-display text-2xl tracking-wider hover:opacity-80">

@@ -1,9 +1,21 @@
 import MusicPlayer from "@/components/MusicPlayer";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const PageTwo = () => {
+  const navigate = useNavigate();
+  const [rolling, setRolling] = useState(false);
+
+  const handleNext = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (rolling) return;
+    setRolling(true);
+    setTimeout(() => navigate("/page-three"), 1200);
+  };
+
   return (
-    <div className="min-h-screen bg-background flex flex-col touch-pinch-zoom animate-fade-in">
+    <div className="min-h-screen bg-background overflow-hidden touch-pinch-zoom animate-fade-in">
+      <div className={`min-h-screen flex flex-col ${rolling ? "page-roll-up" : ""}`}>
       {/* Header */}
       <div className="pt-6 px-6">
         <Link to="/" className="shimmer-gold font-display text-2xl tracking-wider hover:opacity-80">
@@ -44,11 +56,12 @@ const PageTwo = () => {
       <div className="w-full pb-6 px-6 flex items-center justify-between">
         <p className="text-muted-foreground text-xs tracking-widest font-body">Demo</p>
         <div className="flex items-center gap-4">
-          <Link to="/page-three" className="text-gold text-sm hover:underline font-display">
+          <Link to="/page-three" onClick={handleNext} className="text-gold text-sm hover:underline font-display">
             Next →
           </Link>
           <MusicPlayer justify="right" src="/audio/smooth-ember-2.mp3" />
         </div>
+      </div>
       </div>
     </div>
   );
