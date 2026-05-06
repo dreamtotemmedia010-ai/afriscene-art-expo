@@ -27,12 +27,12 @@ const PageThree = () => {
 
         {/* Tile 2 */}
         <div className="flex flex-col sm:flex-row-reverse gap-6">
-          <div className="sm:w-1/2 aspect-video bg-muted rounded-lg border border-gold/20 flex items-center justify-center">
-            <span className="text-muted-foreground text-sm">Insert image or video</span>
+          <div className="sm:w-1/2 aspect-video rounded-lg border border-gold/20 overflow-hidden">
+            <img src="/images/page-three-tile2.jpg" alt="Afro-futurist royals on thrones with pyramids backdrop" className="w-full h-full object-cover" />
           </div>
           <div className="sm:w-1/2 flex items-center">
-            <div className="w-full p-4 bg-card rounded-lg border border-border min-h-[120px]">
-              <p className="text-muted-foreground text-sm">Text box — add your content here</p>
+            <div className="w-full p-4 bg-card rounded-lg border border-border min-h-[120px] flex items-center justify-center">
+              <p className="shimmer-gold font-display text-xl sm:text-2xl tracking-wider text-center leading-relaxed">Welcome, and thank you for your support in viewing this interactive magazine. Join us in July of 2026 for the full feature.</p>
             </div>
           </div>
         </div>
