@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import cubeFace1 from "@/assets/cube-face-1.png";
 import cubeFace2 from "@/assets/cube-face-2.jpeg";
 import cubeFace3 from "@/assets/cube-face-3.jpeg";
@@ -7,8 +7,25 @@ import cubeFace5 from "@/assets/cube-face-5.jpeg";
 import cubeFace6 from "@/assets/cube-face-6.png";
 
 const RotatingCube = () => {
-  const [paused, setPaused] = useState(false);
-  const togglePause = () => setPaused((p) => !p);
+  // States cycle: horizontal -> paused -> vertical -> paused -> horizontal ...
+  const [state, setState] = useState<"horizontal" | "paused-h" | "vertical" | "paused-v">("horizontal");
+  const lastTapRef = useRef(0);
+
+  const handleTap = () => {
+    // Debounce so click + touchstart don't double-fire on touch devices
+    const now = Date.now();
+    if (now - lastTapRef.current < 300) return;
+    lastTapRef.current = now;
+    setState((s) => {
+      if (s === "horizontal") return "paused-h";
+      if (s === "paused-h") return "vertical";
+      if (s === "vertical") return "paused-v";
+      return "horizontal";
+    });
+  };
+
+  const isVertical = state === "vertical" || state === "paused-v";
+  const isPaused = state === "paused-h" || state === "paused-v";
 
   const size = 140;
   const half = size / 2;
@@ -26,11 +43,11 @@ const RotatingCube = () => {
     <div
       className="cursor-pointer"
       style={{ perspective: "600px", width: size, height: size }}
-      onClick={togglePause}
-      onTouchStart={togglePause}
+      onClick={handleTap}
+      onTouchStart={handleTap}
     >
       <div
-        className={`cube-rotate ${paused ? "cube-paused" : ""}`}
+        className={`${isVertical ? "cube-rotate-vertical" : "cube-rotate"} ${isPaused ? "cube-paused" : ""}`}
         style={{
           width: size,
           height: size,
