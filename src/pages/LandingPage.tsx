@@ -110,6 +110,13 @@ const LandingPage = () => {
           <div className="absolute" style={{ top: "38%", left: "50%", transform: "translate(-50%, -50%)" }}>
             <RotatingCube />
           </div>
+          {/* Welcome text below the foot stool */}
+          <div className="absolute bottom-[5%] left-0 right-0 text-center px-4">
+            <p className="font-body text-base sm:text-lg tracking-wide text-black">
+              Welcome to you first interactive magazine{" "}
+              <span className="font-semibold" style={{ color: "#4169E1" }}>(I.M.)</span>
+            </p>
+          </div>
         </div>
       </div>
 
