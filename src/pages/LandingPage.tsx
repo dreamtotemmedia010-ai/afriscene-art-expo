@@ -100,7 +100,7 @@ const LandingPage = () => {
 
       {/* Throne + Cube */}
       <div className="flex-1 flex items-center justify-center relative w-full max-w-2xl px-4">
-        <div className="relative w-full flex justify-center">
+        <div className="relative h-fit flex justify-center">
           <img
             src={throneImg}
             alt="Ornate black marble throne with gold accents"
