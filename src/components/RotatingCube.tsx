@@ -7,8 +7,8 @@ import cubeFace5 from "@/assets/cube-face-5.jpeg";
 import cubeFace6 from "@/assets/cube-face-6.png";
 
 const RotatingCube = () => {
-  const [reverse, setReverse] = useState(false);
-  const toggleDirection = () => setReverse((r) => !r);
+  const [paused, setPaused] = useState(false);
+  const togglePause = () => setPaused((p) => !p);
 
   const size = 140;
   const half = size / 2;
@@ -26,10 +26,11 @@ const RotatingCube = () => {
     <div
       className="cursor-pointer"
       style={{ perspective: "600px", width: size, height: size }}
-      onClick={toggleDirection}
+      onClick={togglePause}
+      onTouchStart={togglePause}
     >
       <div
-        className={reverse ? "cube-rotate-reverse" : "cube-rotate"}
+        className={`cube-rotate ${paused ? "cube-paused" : ""}`}
         style={{
           width: size,
           height: size,
