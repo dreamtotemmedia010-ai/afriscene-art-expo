@@ -99,8 +99,8 @@ const LandingPage = () => {
       </div>
 
       {/* Throne + Cube */}
-      <div className="flex-1 flex items-center justify-center relative w-full max-w-2xl px-4">
-        <div className="relative w-full flex justify-center">
+      <div className="flex-1 flex items-center justify-center w-full max-w-2xl px-4">
+        <div className="relative">
           <img
             src={throneImg}
             alt="Ornate black marble throne with gold accents"
@@ -109,6 +109,13 @@ const LandingPage = () => {
           {/* Cube positioned in the throne seat */}
           <div className="absolute" style={{ top: "38%", left: "50%", transform: "translate(-50%, -50%)" }}>
             <RotatingCube />
+          </div>
+          {/* Welcome text below the foot stool */}
+          <div className="absolute bottom-[10%] left-0 right-0 text-center px-4">
+            <p className="font-body text-base sm:text-lg tracking-wide text-black drop-shadow-sm">
+              Welcome to you first interactive magazine{" "}
+              <span className="font-semibold" style={{ color: "#4169E1" }}>(I.M.)</span>
+            </p>
           </div>
         </div>
       </div>
