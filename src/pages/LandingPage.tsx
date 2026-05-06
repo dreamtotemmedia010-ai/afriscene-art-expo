@@ -111,9 +111,9 @@ const LandingPage = () => {
             <RotatingCube />
           </div>
           {/* Welcome text below the foot stool */}
-          <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", textAlign: "center", padding: "1rem", border: "8px solid red", backgroundColor: "yellow", zIndex: 9999, width: "80%" }}>
-            <p className="font-body text-3xl tracking-wide" style={{ color: "red" }}>
-              TEST TEXT HERE
+          <div className="absolute bottom-[6%] left-0 right-0 text-center px-4">
+            <p className="font-body text-base sm:text-lg tracking-wide text-black drop-shadow-sm">
+              Welcome to you first interactive magazine{" "}
               <span className="font-semibold" style={{ color: "#4169E1" }}>(I.M.)</span>
             </p>
           </div>
