@@ -99,23 +99,25 @@ const LandingPage = () => {
       </div>
 
       {/* Throne + Cube */}
-      <div className="flex-1 flex items-center justify-center relative w-full max-w-2xl px-4">
-        <div className="relative w-full h-fit flex justify-center">
-          <img
-            src={throneImg}
-            alt="Ornate black marble throne with gold accents"
-            className="w-full max-w-lg object-contain"
-          />
-          {/* Cube positioned in the throne seat */}
-          <div className="absolute" style={{ top: "38%", left: "50%", transform: "translate(-50%, -50%)" }}>
-            <RotatingCube />
-          </div>
-          {/* Welcome text below the foot stool */}
-          <div className="absolute bottom-[10%] left-0 right-0 text-center px-4 z-10 border-2 border-red-500">
-            <p className="font-body text-lg sm:text-xl tracking-wide text-black drop-shadow-sm">
-              Welcome to you first interactive magazine{" "}
-              <span className="font-semibold" style={{ color: "#4169E1" }}>(I.M.)</span>
-            </p>
+      <div className="flex-1 flex items-center justify-center w-full max-w-2xl px-4">
+        <div className="flex flex-col items-center gap-2">
+          <div className="relative inline-block">
+            <img
+              src={throneImg}
+              alt="Ornate black marble throne with gold accents"
+              className="w-full max-w-lg object-contain"
+            />
+            {/* Cube positioned in the throne seat */}
+            <div className="absolute" style={{ top: "38%", left: "50%", transform: "translate(-50%, -50%)" }}>
+              <RotatingCube />
+            </div>
+            {/* Welcome text below the foot stool */}
+            <div className="absolute bottom-[8%] left-0 right-0 text-center px-4 border-2 border-red-500">
+              <p className="font-body text-lg sm:text-xl tracking-wide text-black">
+                Welcome to you first interactive magazine{" "}
+                <span className="font-semibold" style={{ color: "#4169E1" }}>(I.M.)</span>
+              </p>
+            </div>
           </div>
         </div>
       </div>
