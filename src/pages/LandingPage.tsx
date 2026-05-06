@@ -14,34 +14,57 @@ const LandingPage = () => {
       const Ctx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
       const ctx = new Ctx();
       audioCtxRef.current = ctx;
-      const bufferSize = 2 * ctx.sampleRate;
-      const noiseBuffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
-      const data = noiseBuffer.getChannelData(0);
-      for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
-      const noise = ctx.createBufferSource();
-      noise.buffer = noiseBuffer;
-      noise.loop = true;
+      const now = ctx.currentTime;
 
-      const filter = ctx.createBiquadFilter();
-      filter.type = "bandpass";
-      filter.frequency.value = 600;
-      filter.Q.value = 0.8;
+      // Master with shimmer reverb-like delay
+      const master = ctx.createGain();
+      master.gain.value = 0.0001;
+      master.gain.setValueAtTime(0.0001, now);
+      master.gain.exponentialRampToValueAtTime(0.5, now + 0.05);
+      master.gain.exponentialRampToValueAtTime(0.0001, now + 2);
+      master.connect(ctx.destination);
 
-      const gain = ctx.createGain();
-      gain.gain.setValueAtTime(0, ctx.currentTime);
-      gain.gain.linearRampToValueAtTime(0.45, ctx.currentTime + 0.3);
-      gain.gain.linearRampToValueAtTime(0.5, ctx.currentTime + 1.2);
-      gain.gain.linearRampToValueAtTime(0, ctx.currentTime + 2);
+      const delay = ctx.createDelay();
+      delay.delayTime.value = 0.28;
+      const feedback = ctx.createGain();
+      feedback.gain.value = 0.45;
+      delay.connect(feedback).connect(delay);
+      delay.connect(master);
 
-      // Sweep filter for whoosh
-      filter.frequency.setValueAtTime(300, ctx.currentTime);
-      filter.frequency.linearRampToValueAtTime(1800, ctx.currentTime + 1.2);
-      filter.frequency.linearRampToValueAtTime(400, ctx.currentTime + 2);
+      // Slow LFO for alien wobble
+      const lfo = ctx.createOscillator();
+      lfo.frequency.value = 6;
+      const lfoGain = ctx.createGain();
+      lfoGain.gain.value = 18;
+      lfo.connect(lfoGain);
+      lfo.start(now);
+      lfo.stop(now + 2);
 
-      noise.connect(filter).connect(gain).connect(ctx.destination);
-      noise.start();
-      noise.stop(ctx.currentTime + 2);
-      setTimeout(() => ctx.close().catch(() => {}), 2200);
+      // Ethereal chime: stacked detuned partials at non-harmonic ratios
+      const partials = [880, 1318.5, 1760, 2217, 2637, 3520];
+      partials.forEach((freq, i) => {
+        const osc = ctx.createOscillator();
+        osc.type = i % 2 === 0 ? "sine" : "triangle";
+        osc.frequency.value = freq;
+        // Detune sweep up for alien shimmer
+        osc.detune.setValueAtTime(-30, now);
+        osc.detune.linearRampToValueAtTime(40, now + 1.8);
+        lfoGain.connect(osc.detune);
+
+        const g = ctx.createGain();
+        const peak = 0.18 / (i + 1);
+        g.gain.setValueAtTime(0.0001, now);
+        g.gain.exponentialRampToValueAtTime(peak, now + 0.04 + i * 0.03);
+        g.gain.exponentialRampToValueAtTime(0.0001, now + 1.9);
+
+        osc.connect(g);
+        g.connect(master);
+        g.connect(delay);
+        osc.start(now + i * 0.02);
+        osc.stop(now + 2);
+      });
+
+      setTimeout(() => ctx.close().catch(() => {}), 2400);
     } catch {
       // no-op
     }
