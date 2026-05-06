@@ -56,9 +56,6 @@ const PageTwo = () => {
       <div className="w-full pb-6 px-6 flex items-center justify-between">
         <p className="text-muted-foreground text-xs tracking-widest font-body">Demo</p>
         <div className="flex items-center gap-4">
-          <Link to="/page-three" className="text-gold text-sm hover:underline font-display">
-            {/* keep link for accessibility, intercept click */}
-          </Link>
           <Link to="/page-three" onClick={handleNext} className="text-gold text-sm hover:underline font-display">
             Next →
           </Link>
