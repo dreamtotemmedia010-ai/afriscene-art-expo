@@ -111,8 +111,8 @@ const LandingPage = () => {
             <RotatingCube />
           </div>
           {/* Welcome text below the foot stool */}
-          <div className="absolute bottom-0 left-0 right-0 text-center px-4 border-4 border-red-500 bg-yellow-300">
-            <p className="font-body text-3xl tracking-wide text-red-600">
+          <div className="absolute" style={{ top: "85%", left: 0, right: 0, textAlign: "center", padding: "0 1rem", border: "4px solid red", backgroundColor: "yellow" }}>
+            <p className="font-body text-3xl tracking-wide" style={{ color: "red" }}>
               TEST TEXT HERE
               <span className="font-semibold" style={{ color: "#4169E1" }}>(I.M.)</span>
             </p>
