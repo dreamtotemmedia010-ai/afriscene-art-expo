@@ -95,8 +95,17 @@
     100% { transform: rotateX(-15deg) rotateY(360deg); }
   }
 
+  @keyframes cube-rotate-reverse {
+    0% { transform: rotateX(-15deg) rotateY(0deg); }
+    100% { transform: rotateX(-15deg) rotateY(-360deg); }
+  }
+
   .cube-rotate {
     animation: cube-rotate 12s linear infinite;
+  }
+
+  .cube-rotate-reverse {
+    animation: cube-rotate-reverse 12s linear infinite;
   }
 
   .cube-paused {
