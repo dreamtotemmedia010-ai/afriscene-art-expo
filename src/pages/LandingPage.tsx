@@ -112,9 +112,9 @@ const LandingPage = () => {
           </div>
           <div className="absolute bottom-[8%] left-0 right-0 text-center px-4 flex flex-col items-center gap-1">
             <p className="font-body text-3xl sm:text-4xl md:text-5xl font-bold tracking-wide drop-shadow-sm">
-              <span className="shimmer-gold">Welcome</span>
+              <span className="shimmer-gold" style={{ WebkitTextStroke: '2px black' }}>Welcome</span>
             </p>
-            <p className="font-body text-base sm:text-lg tracking-wide text-black drop-shadow-sm">
+            <p className="font-body text-xl sm:text-2xl md:text-3xl tracking-wide text-black drop-shadow-sm">
               to your first interactive magazine{" "}
               <span className="font-semibold" style={{ color: "#4169E1" }}>(I.M.)</span>
             </p>
