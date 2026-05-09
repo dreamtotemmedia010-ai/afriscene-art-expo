@@ -110,7 +110,7 @@ const LandingPage = () => {
           <div className="absolute" style={{ top: "38%", left: "50%", transform: "translate(-50%, -50%)" }}>
             <RotatingCube />
           </div>
-          <div className="absolute bottom-[8%] left-0 right-0 text-center px-4 flex flex-col items-center gap-1">
+          <div className="absolute bottom-[2%] left-0 right-0 text-center px-4 flex flex-col items-center gap-1">
             <p className="font-body text-3xl sm:text-4xl md:text-5xl font-bold tracking-wide drop-shadow-sm">
               <span className="shimmer-gold" style={{ WebkitTextStroke: '2px black' }}>Welcome</span>
             </p>
