@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { RotateCcw } from "lucide-react";
 import cubeFace1 from "@/assets/cube-face-1.png";
 import cubeFace2 from "@/assets/cube-face-2.jpeg";
 import cubeFace3 from "@/assets/cube-face-3.jpeg";
@@ -7,8 +8,10 @@ import cubeFace5 from "@/assets/cube-face-5.jpeg";
 import cubeFace6 from "@/assets/cube-face-6.png";
 
 const RotatingCube = () => {
-  // States cycle: horizontal -> paused -> vertical -> paused -> horizontal ...
-  const [state, setState] = useState<"horizontal" | "paused-h" | "vertical" | "paused-v">("horizontal");
+  // Tap/click toggles pause/resume. Restart button resets the animation.
+  const [isPaused, setIsPaused] = useState(false);
+  const [isVertical, setIsVertical] = useState(false);
+  const [animKey, setAnimKey] = useState(0);
   const lastTapRef = useRef(0);
 
   const handleTap = () => {
@@ -16,16 +19,15 @@ const RotatingCube = () => {
     const now = Date.now();
     if (now - lastTapRef.current < 300) return;
     lastTapRef.current = now;
-    setState((s) => {
-      if (s === "horizontal") return "paused-h";
-      if (s === "paused-h") return "vertical";
-      if (s === "vertical") return "paused-v";
-      return "horizontal";
-    });
+    setIsPaused((p) => !p);
   };
 
-  const isVertical = state === "vertical" || state === "paused-v";
-  const isPaused = state === "paused-h" || state === "paused-v";
+  const handleRestart = (e: React.MouseEvent | React.TouchEvent) => {
+    e.stopPropagation();
+    setIsPaused(false);
+    setIsVertical((v) => !v);
+    setAnimKey((k) => k + 1);
+  };
 
   const size = 140;
   const half = size / 2;
@@ -40,13 +42,25 @@ const RotatingCube = () => {
   ];
 
   return (
+    <div className="relative inline-block" style={{ width: size, height: size }}>
     <div
       className="cursor-pointer"
       style={{ perspective: "600px", width: size, height: size }}
       onClick={handleTap}
       onTouchStart={handleTap}
+      role="button"
+      tabIndex={0}
+      aria-label={isPaused ? "Resume cube rotation" : "Pause cube rotation"}
+      aria-pressed={isPaused}
+      onKeyDown={(e) => {
+        if (e.key === " " || e.key === "Enter") {
+          e.preventDefault();
+          handleTap();
+        }
+      }}
     >
       <div
+        key={animKey}
         className={`${isVertical ? "cube-rotate-vertical" : "cube-rotate"} ${isPaused ? "cube-paused" : ""}`}
         style={{
           width: size,
@@ -80,6 +94,15 @@ const RotatingCube = () => {
           </div>
         ))}
       </div>
+    </div>
+      <button
+        type="button"
+        onClick={handleRestart}
+        aria-label="Restart cube rotation"
+        className="absolute -bottom-2 -right-2 bg-background/80 hover:bg-background border border-border rounded-full p-1.5 shadow-md focus:outline-none focus:ring-2 focus:ring-ring transition-colors"
+      >
+        <RotateCcw className="w-4 h-4 text-foreground" aria-hidden="true" />
+      </button>
     </div>
   );
 };
