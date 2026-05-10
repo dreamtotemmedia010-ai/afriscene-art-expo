@@ -123,7 +123,7 @@ const LandingPage = () => {
       </div>
 
       {/* Bottom */}
-      <div className="w-full pb-6 px-4 flex flex-col items-center gap-[15px]">
+      <div className="w-full pb-6 px-4 flex flex-col items-center gap-2 mt-8">
         <MusicPlayer />
         <p className="text-muted-foreground text-base sm:text-lg tracking-widest font-body">for Demo purposes</p>
       </div>
