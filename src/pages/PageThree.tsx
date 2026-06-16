@@ -30,12 +30,12 @@ const PageThree = () => {
         {/* Tile 2 */}
         <div className="flex flex-col sm:flex-row-reverse gap-6">
           <div className="sm:w-1/2 aspect-video rounded-lg border border-gold/20 overflow-hidden">
-            <img src="/images/page-three-tile2.jpg" alt="Afro-futurist royals on thrones with pyramids backdrop" className="w-full h-full object-cover" />
+            <img src={derrickArt.url} alt="Danse a l'aube de la melanine by Derrick Carter" className="w-full h-full object-cover" />
           </div>
           <div className="sm:w-1/2 flex items-center min-w-0">
             <div className="w-full p-4 bg-card rounded-lg border border-border min-h-[120px] flex flex-col items-center justify-center gap-2 min-w-0">
-              <p className="shimmer-gold font-display text-3xl sm:text-4xl font-bold tracking-wider text-center break-words hyphens-auto max-w-full">THANK YOU</p>
-              <p className="shimmer-gold font-display text-base sm:text-xl tracking-normal sm:tracking-wider text-center leading-relaxed break-words hyphens-auto max-w-full">for your support in viewing this interactive magazine. Revisit this user name on this platform in July 2026 for the full feature, including motion graphics, A.I. videos, and more engaging interactive elements and content for AAMi</p>
+              <p className="shimmer-gold font-display text-3xl sm:text-4xl font-bold tracking-wider text-center break-words hyphens-auto max-w-full">Art</p>
+              <p className="shimmer-gold font-display text-base sm:text-xl tracking-normal sm:tracking-wider text-center leading-relaxed break-words hyphens-auto max-w-full">"Danse a l'aube de la melanine" (Melanine dawn dancing) [not actual name] by Derrick Carter</p>
             </div>
           </div>
         </div>
