@@ -1,5 +1,6 @@
 import MusicPlayer from "@/components/MusicPlayer";
 import { Link } from "react-router-dom";
+import derrickArt from "@/assets/Derrick_Carter.jpeg.asset.json";
 
 const PageThree = () => {
   return (
