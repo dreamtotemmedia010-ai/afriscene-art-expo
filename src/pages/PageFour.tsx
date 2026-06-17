@@ -59,7 +59,7 @@ const PageFour = () => {
           <div className="sm:w-1/2 flex items-center min-w-0">
             <div className="w-full p-4 bg-card rounded-lg border border-border min-h-[120px] flex flex-col items-center justify-center gap-3 min-w-0">
               <p className="shimmer-gold font-display text-2xl sm:text-4xl font-bold tracking-wider text-center break-words max-w-full">
-                Interactive Poetry (tap the left hand to play commentary)
+                Interactive Poetry (tap the play icon to play the commentary)
               </p>
               <p className="shimmer-gold font-display text-sm sm:text-lg tracking-normal text-center leading-relaxed break-words max-w-full whitespace-pre-line">
                 {POEM_LINES.join("\n")}
