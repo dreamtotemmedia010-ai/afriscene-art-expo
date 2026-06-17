@@ -7,6 +7,7 @@ import LandingPage from "./pages/LandingPage";
 import PageTwo from "./pages/PageTwo";
 import PageThree from "./pages/PageThree";
 import PageFour from "./pages/PageFour";
+import PageFive from "./pages/PageFive";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/page-two" element={<PageTwo />} />
           <Route path="/page-three" element={<PageThree />} />
           <Route path="/page-four" element={<PageFour />} />
+          <Route path="/page-five" element={<PageFive />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
