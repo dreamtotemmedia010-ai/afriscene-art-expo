@@ -4,14 +4,14 @@ import mediImg from "@/assets/Medi.png.asset.json";
 import audioTrack from "@/assets/Fin_pour_IM_Rhyme.mp3.asset.json";
 
 const POEM_LINES = [
-  "Thoughts on riot, whose ever sighted",
-  "Solo or teams invited, single physiques get Gemini divided",
-  "I'm dark knighted, mind laser-guided",
-  "Big Bang's omen was an mcee and me collided",
-  "My level to find it",
-  "Dark matter stellar chariot Aries riding it",
-  "Scribed, in sacred books slighted",
-  "I was spitting hair eyes & mic ignited!",
+  "Thoughts on riot, whose ever sighted/",
+  "Solo or teams invited, single physiques get Gemini divided/",
+  "I'm dark knighted, mind laser-guided/",
+  "Big Bang's omen was an mcee and me collided/",
+  "My level to find it/",
+  "Dark matter stellar chariot Aries riding it/",
+  "Scribed, in sacred books slighted/",
+  "I was spitting with my Hair, Eyes & Mic IGNITED!",
 ];
 
 const PageFour = () => {
