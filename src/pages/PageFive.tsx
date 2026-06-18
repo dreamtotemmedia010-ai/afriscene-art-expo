@@ -41,8 +41,8 @@ const PageFive = () => {
         <div className="flex flex-col sm:flex-row gap-6 items-stretch">
           <div className="sm:w-1/2 flex items-center min-w-0 order-2 sm:order-1">
             <div className="w-full p-4 bg-card rounded-lg border border-border min-h-[120px] flex flex-col items-center justify-center gap-3 min-w-0">
-              <p className="shimmer-gold font-display text-2xl sm:text-4xl font-bold tracking-wider text-center break-words max-w-full">
-                Interactive cpIT (tap the play icon)
+              <p className="shimmer-gold font-display text-2xl sm:text-4xl font-bold tracking-wider text-center break-words max-w-full whitespace-pre-line">
+                Interactive cpIT{"\u00a0\n"}(tap the play icon)
               </p>
               <p className="shimmer-gold font-display text-sm sm:text-lg tracking-normal text-center leading-relaxed break-words max-w-full whitespace-pre-line">
                 {POEM_LINES.join("\n")}
