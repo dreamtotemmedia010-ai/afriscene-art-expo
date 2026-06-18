@@ -42,10 +42,10 @@ const PageFive = () => {
           <div className="sm:w-1/2 flex items-center min-w-0 order-2 sm:order-1">
             <div className="w-full p-6 sm:p-10 bg-card rounded-lg border border-border min-h-[120px] flex flex-col items-center justify-center gap-6 min-w-0">
               <p className="shimmer-gold font-display text-2xl sm:text-4xl font-bold tracking-wider text-center break-words max-w-full whitespace-pre-line">
-                Interactive cpIT{"\u00a0\n"}(tap the play icon)
+                Interactive cpIT{"\u00a0\n"}(tap the play icon below)
               </p>
               <p className="shimmer-gold font-display text-lg sm:text-3xl md:text-4xl tracking-wide text-center leading-[1.8] break-words max-w-full whitespace-pre-line">
-                {POEM_LINES.join("\n")}
+                {"\n\n" + POEM_LINES.join("\n")}
               </p>
             </div>
           </div>
