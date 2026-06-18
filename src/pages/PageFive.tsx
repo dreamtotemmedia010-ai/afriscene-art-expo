@@ -44,7 +44,7 @@ const PageFive = () => {
               <p className="shimmer-gold font-display text-2xl sm:text-4xl font-bold tracking-wider text-center break-words max-w-full whitespace-pre-line">
                 Interactive cpIT{"\u00a0\n"}(tap the play icon)
               </p>
-              <p className="shimmer-gold font-display text-sm sm:text-lg tracking-normal text-center leading-relaxed break-words max-w-full whitespace-pre-line">
+              <p className="shimmer-gold font-display text-base sm:text-2xl md:text-3xl tracking-wide text-center leading-loose break-words max-w-full whitespace-pre-line">
                 {POEM_LINES.join("\n")}
               </p>
             </div>
