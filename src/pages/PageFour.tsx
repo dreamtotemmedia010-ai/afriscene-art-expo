@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useRef, useState } from "react";
-import mediImg from "@/assets/Medi.png.asset.json";
-import audioTrack from "@/assets/Fin_pour_IM_Rhyme.mp3.asset.json";
+import mediImg from "@/assets/Medi-2.png.asset.json";
+import audioTrack from "@/assets/IM_Rhyme_commentary_fin.mp3.asset.json";
 
 const POEM_LINES = [
   "Thoughts on riot, whose ever sighted/",
@@ -42,7 +42,15 @@ const PageFour = () => {
 
       <div className="flex-1 flex flex-col gap-8 p-6 sm:p-10 max-w-6xl mx-auto w-full">
         <div className="flex flex-col sm:flex-row gap-6 items-stretch">
-          <div className="flex items-center gap-4 sm:w-1/2">
+          <div className="flex flex-col items-center gap-4 sm:w-1/2">
+            <div
+              className="w-full rounded-lg border border-gold/20 overflow-hidden cursor-pointer select-none bg-background"
+              onClick={toggleAudio}
+              role="button"
+              aria-label={playing ? "Pause audio" : "Play audio"}
+            >
+              <img src={mediImg.url} alt="Hooded figure with red lightsaber microphone" className="w-full h-auto object-contain" draggable={false} />
+            </div>
             <button
               onClick={toggleAudio}
               aria-label={playing ? "Pause audio" : "Play audio"}
@@ -50,14 +58,6 @@ const PageFour = () => {
             >
               {playing ? "❚❚" : "▶"}
             </button>
-            <div
-              className="flex-1 aspect-[4/3] rounded-lg border border-gold/20 overflow-hidden cursor-pointer select-none"
-              onClick={toggleAudio}
-              role="button"
-              aria-label={playing ? "Pause audio" : "Play audio"}
-            >
-              <img src={mediImg.url} alt="Hooded figure with red lightsaber microphone" className="w-full h-full object-cover" draggable={false} />
-            </div>
           </div>
           <div className="sm:w-1/2 flex items-center min-w-0">
             <div className="w-full p-4 bg-card rounded-lg border border-border min-h-[120px] flex flex-col items-center justify-center gap-3 min-w-0">
