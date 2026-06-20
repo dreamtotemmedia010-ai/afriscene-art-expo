@@ -89,8 +89,6 @@ const PageThree = () => {
             alt="Danse a l'aube de la melanine by Derrick Carter"
             style={{ aspectRatio: "9 / 19.5" }}
             className="h-full max-h-screen w-auto object-contain rounded-lg animate-scale-in touch-pinch-zoom"
-            onClick={(e) => e.stopPropagation()}
-            onDoubleClick={closeArt}
           />
         </div>
       )}
