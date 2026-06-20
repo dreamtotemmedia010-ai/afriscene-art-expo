@@ -1,8 +1,38 @@
 import MusicPlayer from "@/components/MusicPlayer";
 import { Link } from "react-router-dom";
 import derrickArt from "@/assets/Derrick_Carter.jpeg.asset.json";
+import derrickArtFull from "@/assets/Derrick_Carter_full.jpeg.asset.json";
+import artAudio from "@/assets/Art_com_DC_mel_dawn.mp3.asset.json";
+import { useRef, useState, useEffect } from "react";
 
 const PageThree = () => {
+  const [artOpen, setArtOpen] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  const openArt = () => {
+    setArtOpen(true);
+    setTimeout(() => {
+      if (audioRef.current) {
+        audioRef.current.currentTime = 0;
+        audioRef.current.play().catch(() => {});
+      }
+    }, 0);
+  };
+
+  const closeArt = () => {
+    setArtOpen(false);
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+  };
+
+  useEffect(() => {
+    return () => {
+      if (audioRef.current) audioRef.current.pause();
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-background flex flex-col touch-pinch-zoom animate-fade-in-slow">
       {/* Header */}
@@ -34,12 +64,34 @@ const PageThree = () => {
           </div>
           <div className="sm:w-1/2 flex items-center min-w-0">
             <div className="w-full p-4 bg-card rounded-lg border border-border min-h-[120px] flex flex-col items-center justify-center gap-2 min-w-0">
-              <p className="shimmer-gold font-display text-3xl sm:text-4xl font-bold tracking-wider text-center break-words hyphens-auto max-w-full">Art</p>
+              <button
+                onClick={openArt}
+                className="shimmer-gold font-display text-3xl sm:text-4xl font-bold tracking-wider text-center break-words hyphens-auto max-w-full hover:opacity-80 transition-opacity cursor-pointer"
+              >
+                Art
+              </button>
+              <p className="shimmer-gold font-display text-sm sm:text-base tracking-wider text-center opacity-80">(click/tap "Art")</p>
               <p className="shimmer-gold font-display text-base sm:text-xl tracking-normal sm:tracking-wider text-center leading-relaxed break-words hyphens-auto max-w-full">"Danse a l'aube de la melanine" (Melanine dawn dancing) [not actual name] by Derrick Carter</p>
             </div>
           </div>
         </div>
       </div>
+
+      <audio ref={audioRef} src={artAudio.url} preload="auto" onEnded={closeArt} />
+
+      {artOpen && (
+        <div
+          onClick={closeArt}
+          className="fixed inset-0 z-50 bg-background/95 flex items-center justify-center p-4 animate-fade-in cursor-pointer"
+        >
+          <img
+            src={derrickArtFull.url}
+            alt="Danse a l'aube de la melanine by Derrick Carter"
+            style={{ aspectRatio: "9 / 19.5" }}
+            className="h-full max-h-screen w-auto object-contain rounded-lg"
+          />
+        </div>
+      )}
 
       {/* Bottom */}
       <div className="w-full pb-6 px-6 flex items-center justify-between">
