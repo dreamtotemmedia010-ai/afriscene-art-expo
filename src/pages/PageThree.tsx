@@ -82,13 +82,13 @@ const PageThree = () => {
       {artOpen && (
         <div
           onClick={closeArt}
-          className="fixed inset-0 z-50 bg-background/95 flex items-center justify-center p-4 animate-fade-in cursor-pointer"
+          className="fixed inset-0 z-50 bg-background/95 flex items-center justify-center p-4 animate-fade-in cursor-pointer touch-pinch-zoom overflow-auto"
         >
           <img
             src={derrickArtFull.url}
             alt="Danse a l'aube de la melanine by Derrick Carter"
             style={{ aspectRatio: "9 / 19.5" }}
-            className="h-full max-h-screen w-auto object-contain rounded-lg"
+            className="h-full max-h-screen w-auto object-contain rounded-lg animate-scale-in touch-pinch-zoom"
           />
         </div>
       )}
