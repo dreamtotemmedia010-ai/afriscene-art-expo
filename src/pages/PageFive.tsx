@@ -31,9 +31,12 @@ const PageFive = () => {
 
   return (
     <div className="min-h-screen bg-background flex flex-col animate-fade-in-slow">
-      <div className="pt-6 px-6">
+      <div className="pt-6 px-6 flex justify-between items-center">
         <Link to="/page-four" className="shimmer-gold font-display text-2xl tracking-wider hover:opacity-80">
           ← Back
+        </Link>
+        <Link to="/page-six" className="shimmer-gold font-display text-2xl tracking-wider hover:opacity-80">
+          Next →
         </Link>
       </div>
 
