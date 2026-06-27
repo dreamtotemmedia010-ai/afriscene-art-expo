@@ -86,7 +86,7 @@ const PageSix = () => {
 
         <div className="text-center space-y-2">
           <h2 className="shimmer-gold font-display text-4xl sm:text-6xl md:text-7xl tracking-wider">
-            The end of the first beginning.
+            ~~~~The End ~~~~
           </h2>
           <p className="shimmer-gold font-display text-lg sm:text-2xl md:text-3xl tracking-wide">
             (African American Art Magazine, interactive magazine)
