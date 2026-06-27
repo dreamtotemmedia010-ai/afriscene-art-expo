@@ -11,29 +11,34 @@ const PageSix = () => {
   const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
-    // Transition sound effect via WebAudio (drum cymbal crash)
+    // Transition sound effect via WebAudio (cymbal roll)
     try {
       const Ctx = (window.AudioContext || (window as any).webkitAudioContext);
       const ctx = new Ctx();
-      const duration = 1.6;
+      const duration = 2.5;
       const sampleRate = ctx.sampleRate;
       const buffer = ctx.createBuffer(1, sampleRate * duration, sampleRate);
       const data = buffer.getChannelData(0);
       for (let i = 0; i < data.length; i++) {
         const t = i / sampleRate;
-        // White noise with exponential decay = cymbal crash
-        data[i] = (Math.random() * 2 - 1) * Math.pow(1 - t / duration, 2);
+        // Build a swell: attack 0-1.2s, then decay
+        const attack = Math.min(t / 1.2, 1);
+        const decay = Math.pow(1 - Math.max((t - 1.2) / 1.3, 0), 2);
+        const envelope = attack * decay;
+        data[i] = (Math.random() * 2 - 1) * envelope;
       }
       const noise = ctx.createBufferSource();
       noise.buffer = buffer;
-      // High-pass to give it that shimmery cymbal character
-      const hp = ctx.createBiquadFilter();
-      hp.type = "highpass";
-      hp.frequency.value = 4000;
+      // Bandpass to focus on cymbal shimmer range
+      const bp = ctx.createBiquadFilter();
+      bp.type = "bandpass";
+      bp.frequency.value = 6000;
+      bp.Q.value = 1.5;
       const gain = ctx.createGain();
-      gain.gain.setValueAtTime(0.6, ctx.currentTime);
+      gain.gain.setValueAtTime(0.001, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.7, ctx.currentTime + 1.2);
       gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + duration);
-      noise.connect(hp).connect(gain).connect(ctx.destination);
+      noise.connect(bp).connect(gain).connect(ctx.destination);
       noise.start();
       noise.stop(ctx.currentTime + duration);
     } catch {}
