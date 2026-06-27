@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import closingAudio from "@/assets/IM_closing_message_fin.m4a.asset.json";
 
 const VIDEO_URL =
-  "https://player.cloudinary.com/embed/?cloud_name=die2n47m2&public_id=cleaned_video_hw2kh2&player[autoplay]=true&player[muted]=false";
+  "https://player.cloudinary.com/embed/?cloud_name=die2n47m2&public_id=Roi_et_Reine_fin_iu6gpt&player[autoplay]=true&player[muted]=false";
 
 const PageSix = () => {
   const [showVideo, setShowVideo] = useState(false);
@@ -11,24 +11,34 @@ const PageSix = () => {
   const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
-    // Transition sound effect via WebAudio (whoosh-like sweep)
+    // Transition sound effect via WebAudio (drum cymbal crash)
     try {
       const Ctx = (window.AudioContext || (window as any).webkitAudioContext);
       const ctx = new Ctx();
-      const osc = ctx.createOscillator();
+      const duration = 1.6;
+      const sampleRate = ctx.sampleRate;
+      const buffer = ctx.createBuffer(1, sampleRate * duration, sampleRate);
+      const data = buffer.getChannelData(0);
+      for (let i = 0; i < data.length; i++) {
+        const t = i / sampleRate;
+        // White noise with exponential decay = cymbal crash
+        data[i] = (Math.random() * 2 - 1) * Math.pow(1 - t / duration, 2);
+      }
+      const noise = ctx.createBufferSource();
+      noise.buffer = buffer;
+      // High-pass to give it that shimmery cymbal character
+      const hp = ctx.createBiquadFilter();
+      hp.type = "highpass";
+      hp.frequency.value = 4000;
       const gain = ctx.createGain();
-      osc.type = "sine";
-      osc.frequency.setValueAtTime(880, ctx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(120, ctx.currentTime + 1.2);
-      gain.gain.setValueAtTime(0.0001, ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.3, ctx.currentTime + 0.05);
-      gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 1.3);
-      osc.connect(gain).connect(ctx.destination);
-      osc.start();
-      osc.stop(ctx.currentTime + 1.35);
+      gain.gain.setValueAtTime(0.6, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + duration);
+      noise.connect(hp).connect(gain).connect(ctx.destination);
+      noise.start();
+      noise.stop(ctx.currentTime + duration);
     } catch {}
 
-    const t = setTimeout(() => setShowVideo(true), 1400);
+    const t = setTimeout(() => setShowVideo(true), 1600);
     return () => clearTimeout(t);
   }, []);
 
@@ -52,22 +62,36 @@ const PageSix = () => {
       </div>
 
       <div className="flex-1 flex flex-col gap-6 p-6 sm:p-10 max-w-5xl mx-auto w-full items-center justify-center">
-        {!showVideo ? (
-          <div className="w-full aspect-video rounded-lg border border-gold/30 flex items-center justify-center animate-fade-in">
+        <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-gold/30">
+          <div
+            className={`absolute inset-0 flex items-center justify-center bg-background transition-opacity duration-[1600ms] ease-in-out ${showVideo ? "opacity-0" : "opacity-100"}`}
+          >
             <p className="shimmer-gold font-display text-3xl sm:text-5xl tracking-widest">Loading…</p>
           </div>
-        ) : (
-          <div className="w-full aspect-video rounded-lg overflow-hidden border border-gold/30 animate-scale-in">
-            <iframe
-              src={VIDEO_URL}
-              title="Closing video"
-              allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
-              allowFullScreen
-              className="w-full h-full"
-              frameBorder={0}
-            />
+          <div
+            className={`absolute inset-0 transition-opacity duration-[1600ms] ease-in-out ${showVideo ? "opacity-100" : "opacity-0"}`}
+          >
+            {showVideo && (
+              <iframe
+                src={VIDEO_URL}
+                title="Closing video"
+                allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+                frameBorder={0}
+              />
+            )}
           </div>
-        )}
+        </div>
+
+        <div className="text-center space-y-2">
+          <h2 className="shimmer-gold font-display text-4xl sm:text-6xl md:text-7xl tracking-wider">
+            The end of the first beginning.
+          </h2>
+          <p className="shimmer-gold font-display text-lg sm:text-2xl md:text-3xl tracking-wide">
+            (African American Art Magazine, interactive magazine)
+          </p>
+        </div>
 
         <button
           onClick={toggleAudio}
