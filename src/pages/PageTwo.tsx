@@ -57,7 +57,7 @@ const PageTwo = () => {
         <p className="text-muted-foreground text-xs tracking-widest font-body">Demo</p>
         <div className="flex items-center gap-4">
           <Link to="/page-three" onClick={handleNext} className="text-gold text-sm hover:underline font-display">
-            Next →
+            <span className="text-lg">Next →</span>
           </Link>
           <MusicPlayer justify="right" src="/audio/smooth-ember-2.mp3" />
         </div>
