@@ -93,8 +93,8 @@ const LandingPage = () => {
           </Link>
           <span className="text-pale-green ml-3">American</span>
         </h1>
-        <p className="text-foreground/80 font-body text-lg sm:text-xl md:text-2xl mt-2 tracking-widest">
-          The African American Arts Festival Magazine
+        <p className="text-foreground/80 font-body text-lg sm:text-xl md:text-2xl mt-2 tracking-widest whitespace-pre-wrap">
+          The African American Arts Festival Magazine{"\n\n\n"}[Tap "AFRICAN" to go to the next page]{"\n\n"}
         </p>
       </div>
 
