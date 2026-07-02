@@ -94,7 +94,11 @@ const LandingPage = () => {
           <span className="text-pale-green ml-3">American</span>
         </h1>
         <p className="text-foreground/80 font-body text-lg sm:text-xl md:text-2xl mt-2 tracking-widest whitespace-pre-wrap">
-          The African American Arts Festival Magazine{"\n\n"}<span className="shimmer-gold">[Tap "AFRICAN" to go to the next page]</span>{"\n\n"}
+          The African American Arts Festival Magazine{"\n\n"}
+          <span className="shimmer-gold">
+            [Tap "AFRICAN" to go to the next page]{"\n"}
+            [Tap the small CIRCLE ICON to rotate the cube in a different direction]
+          </span>{"\n\n"}
         </p>
       </div>
 
