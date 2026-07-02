@@ -1,10 +1,29 @@
 import MusicPlayer from "@/components/MusicPlayer";
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import tupacFull from "@/assets/Tupac_in_studio_Full_pic.jpg.asset.json";
+import tupacAudio from "@/assets/IM_Tupacs_secret_agenda_cliff_hanger.m4a.asset.json";
 
 const PageTwo = () => {
   const navigate = useNavigate();
   const [rolling, setRolling] = useState(false);
+  const [showTupac, setShowTupac] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  const openTupac = () => {
+    setShowTupac(true);
+    setTimeout(() => {
+      audioRef.current?.play().catch(() => {});
+    }, 50);
+  };
+
+  const closeTupac = () => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+    setShowTupac(false);
+  };
 
   const handleNext = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -27,13 +46,20 @@ const PageTwo = () => {
       <div className="flex-1 flex flex-col gap-8 p-6 sm:p-10 max-w-6xl mx-auto w-full">
         {/* Tile 1 - Image/Video left, text right */}
         <div className="flex flex-col sm:flex-row gap-6">
-          <div className="sm:w-1/2 aspect-video rounded-lg border border-gold/20 overflow-hidden">
+          <button
+            type="button"
+            onClick={openTupac}
+            className="sm:w-1/2 aspect-video rounded-lg border border-gold/20 overflow-hidden cursor-pointer"
+          >
             <img src="/images/page-two-tile1.jpg" alt="Studio portrait" className="w-full h-full object-cover" />
-          </div>
+          </button>
           <div className="sm:w-1/2 flex items-center">
             <div className="w-full p-4 bg-card rounded-lg border border-border min-h-[120px] flex flex-col items-center justify-center">
               <p className="shimmer-gold font-display text-2xl sm:text-3xl tracking-wider text-center mb-2">Celebrity News</p>
-              <p className="shimmer-gold font-display text-xl sm:text-2xl tracking-wider text-center leading-relaxed">"Thug Life" was a concubine, not the main Wife/ expecting resurrecting truths shedding his Lyme Life!</p>
+              <p className="shimmer-gold font-display text-xl sm:text-2xl tracking-wider text-center leading-relaxed">
+                "Thug Life" was a concubine, not the main Wife/ expecting resurrecting truths shedding his Lyme Life!{" "}
+                <span className="text-xs sm:text-sm italic">(tap on Tupac)</span>
+              </p>
             </div>
           </div>
         </div>
@@ -62,6 +88,19 @@ const PageTwo = () => {
           <MusicPlayer justify="right" src="/audio/smooth-ember-2.mp3" />
         </div>
       </div>
+      {showTupac && (
+        <div
+          onClick={closeTupac}
+          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 cursor-pointer animate-fade-in"
+        >
+          <img
+            src={tupacFull.url}
+            alt="Tupac in studio"
+            className="max-h-full max-w-full object-contain rounded-lg"
+          />
+          <audio ref={audioRef} src={tupacAudio.url} />
+        </div>
+      )}
       </div>
     </div>
   );
