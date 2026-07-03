@@ -10,25 +10,25 @@ import { useRef, useState, useEffect } from "react";
 
 const PageThree = () => {
   const [artOpen, setArtOpen] = useState(false);
-  const [fashionOn, setFashionOn] = useState(false);
+  const [fashionOverlayOpen, setFashionOverlayOpen] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const fashionAudioRef = useRef<HTMLAudioElement | null>(null);
 
-  const toggleFashion = () => {
-    if (fashionOn) {
+  const openFashionOverlay = () => {
+    setFashionOverlayOpen(true);
+    setTimeout(() => {
       if (fashionAudioRef.current) {
-        fashionAudioRef.current.pause();
         fashionAudioRef.current.currentTime = 0;
+        fashionAudioRef.current.play().catch(() => {});
       }
-      setFashionOn(false);
-    } else {
-      setFashionOn(true);
-      setTimeout(() => {
-        if (fashionAudioRef.current) {
-          fashionAudioRef.current.currentTime = 0;
-          fashionAudioRef.current.play().catch(() => {});
-        }
-      }, 0);
+    }, 0);
+  };
+
+  const closeFashionOverlay = () => {
+    setFashionOverlayOpen(false);
+    if (fashionAudioRef.current) {
+      fashionAudioRef.current.pause();
+      fashionAudioRef.current.currentTime = 0;
     }
   };
 
