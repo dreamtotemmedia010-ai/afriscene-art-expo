@@ -121,6 +121,19 @@ const PageThree = () => {
         </div>
       )}
 
+      {fashionOverlayOpen && (
+        <div
+          onClick={closeFashionOverlay}
+          className="fixed inset-0 z-50 bg-background/95 flex items-center justify-center p-4 animate-fade-in cursor-pointer"
+        >
+          <img
+            src={fashionFull.url}
+            alt="African futurist streetwear full"
+            className="max-h-[90vh] max-w-[90vw] object-contain rounded-lg animate-scale-in shadow-[0_0_60px_20px_rgba(0,150,255,0.9),0_0_120px_40px_rgba(0,150,255,0.6)] border-2 border-[#00A6FF]"
+          />
+        </div>
+      )}
+
       {/* Bottom */}
       <div className="w-full pb-6 px-6 flex items-center justify-between">
         <p className="text-muted-foreground text-xs tracking-widest font-body">Demo</p>
