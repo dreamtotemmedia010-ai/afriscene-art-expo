@@ -4,6 +4,7 @@ import derrickArt from "@/assets/Derrick_Carter.jpeg.asset.json";
 import derrickArtFull from "@/assets/Derrick_Carter_full.jpeg.asset.json";
 import artAudio from "@/assets/Art_com_DC_mel_dawn.mp3.asset.json";
 import fashionFull from "@/assets/African_future_street_wear_full.png.asset.json";
+import fashionThumb from "@/assets/African_future_et_street_wear_3.png.asset.json";
 import fashionAudio from "@/assets/pulse-on-my-name.mp3.asset.json";
 import { useRef, useState, useEffect } from "react";
 
