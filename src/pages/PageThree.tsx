@@ -3,11 +3,33 @@ import { Link } from "react-router-dom";
 import derrickArt from "@/assets/Derrick_Carter.jpeg.asset.json";
 import derrickArtFull from "@/assets/Derrick_Carter_full.jpeg.asset.json";
 import artAudio from "@/assets/Art_com_DC_mel_dawn.mp3.asset.json";
+import fashionFull from "@/assets/African_future_street_wear_full.png.asset.json";
+import fashionAudio from "@/assets/pulse-on-my-name.mp3.asset.json";
 import { useRef, useState, useEffect } from "react";
 
 const PageThree = () => {
   const [artOpen, setArtOpen] = useState(false);
+  const [fashionOn, setFashionOn] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const fashionAudioRef = useRef<HTMLAudioElement | null>(null);
+
+  const toggleFashion = () => {
+    if (fashionOn) {
+      if (fashionAudioRef.current) {
+        fashionAudioRef.current.pause();
+        fashionAudioRef.current.currentTime = 0;
+      }
+      setFashionOn(false);
+    } else {
+      setFashionOn(true);
+      setTimeout(() => {
+        if (fashionAudioRef.current) {
+          fashionAudioRef.current.currentTime = 0;
+          fashionAudioRef.current.play().catch(() => {});
+        }
+      }, 0);
+    }
+  };
 
   const openArt = () => {
     setArtOpen(true);
@@ -46,9 +68,14 @@ const PageThree = () => {
       <div className="flex-1 flex flex-col gap-8 p-6 sm:p-10 max-w-6xl mx-auto w-full">
         {/* Tile 1 */}
         <div className="flex flex-col sm:flex-row gap-6">
-          <div className="sm:w-1/2 aspect-video rounded-lg border border-gold/20 overflow-hidden">
-            <img src="/images/page-three-tile1.png" alt="African futurist streetwear quad" className="w-full h-full object-cover" />
-          </div>
+          <button
+            type="button"
+            onClick={toggleFashion}
+            className={`sm:w-1/2 aspect-video rounded-lg border border-gold/20 overflow-hidden cursor-pointer transition-shadow duration-300 ${fashionOn ? "shadow-[0_0_40px_10px_rgba(0,150,255,0.9),0_0_80px_20px_rgba(0,150,255,0.6)] border-[#00A6FF]" : ""}`}
+          >
+            <img src={fashionOn ? fashionFull.url : "/images/page-three-tile1.png"} alt="African futurist streetwear" className="w-full h-full object-cover" />
+          </button>
+          <audio ref={fashionAudioRef} src={fashionAudio.url} />
           <div className="sm:w-1/2 flex items-center min-w-0">
             <div className="w-full p-4 bg-card rounded-lg border border-border min-h-[120px] flex flex-col items-center justify-center gap-2 min-w-0">
               <p className="shimmer-gold font-display text-2xl sm:text-3xl tracking-wider text-center break-words hyphens-auto max-w-full">Fashion</p>
