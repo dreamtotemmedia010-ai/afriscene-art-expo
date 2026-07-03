@@ -4,30 +4,31 @@ import derrickArt from "@/assets/Derrick_Carter.jpeg.asset.json";
 import derrickArtFull from "@/assets/Derrick_Carter_full.jpeg.asset.json";
 import artAudio from "@/assets/Art_com_DC_mel_dawn.mp3.asset.json";
 import fashionFull from "@/assets/African_future_street_wear_full.png.asset.json";
+import fashionThumb from "@/assets/African_future_et_street_wear_3.png.asset.json";
 import fashionAudio from "@/assets/pulse-on-my-name.mp3.asset.json";
 import { useRef, useState, useEffect } from "react";
 
 const PageThree = () => {
   const [artOpen, setArtOpen] = useState(false);
-  const [fashionOn, setFashionOn] = useState(false);
+  const [fashionOverlayOpen, setFashionOverlayOpen] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const fashionAudioRef = useRef<HTMLAudioElement | null>(null);
 
-  const toggleFashion = () => {
-    if (fashionOn) {
+  const openFashionOverlay = () => {
+    setFashionOverlayOpen(true);
+    setTimeout(() => {
       if (fashionAudioRef.current) {
-        fashionAudioRef.current.pause();
         fashionAudioRef.current.currentTime = 0;
+        fashionAudioRef.current.play().catch(() => {});
       }
-      setFashionOn(false);
-    } else {
-      setFashionOn(true);
-      setTimeout(() => {
-        if (fashionAudioRef.current) {
-          fashionAudioRef.current.currentTime = 0;
-          fashionAudioRef.current.play().catch(() => {});
-        }
-      }, 0);
+    }, 0);
+  };
+
+  const closeFashionOverlay = () => {
+    setFashionOverlayOpen(false);
+    if (fashionAudioRef.current) {
+      fashionAudioRef.current.pause();
+      fashionAudioRef.current.currentTime = 0;
     }
   };
 
@@ -70,10 +71,10 @@ const PageThree = () => {
         <div className="flex flex-col sm:flex-row gap-6">
           <button
             type="button"
-            onClick={toggleFashion}
-            className={`sm:w-1/2 aspect-video rounded-lg border border-gold/20 overflow-hidden cursor-pointer transition-shadow duration-300 ${fashionOn ? "shadow-[0_0_40px_10px_rgba(0,150,255,0.9),0_0_80px_20px_rgba(0,150,255,0.6)] border-[#00A6FF]" : ""}`}
+            onClick={openFashionOverlay}
+            className="sm:w-1/2 aspect-video rounded-lg border border-gold/20 overflow-hidden cursor-pointer"
           >
-            <img src={fashionOn ? fashionFull.url : "/images/page-three-tile1.png"} alt="African futurist streetwear" className="w-full h-full object-cover" />
+            <img src={fashionThumb.url} alt="African futurist streetwear" className="w-full h-full object-cover" />
           </button>
           <audio ref={fashionAudioRef} src={fashionAudio.url} />
           <div className="sm:w-1/2 flex items-center min-w-0">
@@ -116,6 +117,19 @@ const PageThree = () => {
             alt="Danse a l'aube de la melanine by Derrick Carter"
             style={{ aspectRatio: "9 / 19.5" }}
             className="h-full max-h-screen w-auto object-contain rounded-lg animate-scale-in touch-pinch-zoom"
+          />
+        </div>
+      )}
+
+      {fashionOverlayOpen && (
+        <div
+          onClick={closeFashionOverlay}
+          className="fixed inset-0 z-50 bg-background/95 flex items-center justify-center p-4 animate-fade-in cursor-pointer"
+        >
+          <img
+            src={fashionFull.url}
+            alt="African futurist streetwear full"
+            className="max-h-[90vh] max-w-[90vw] object-contain rounded-lg animate-scale-in shadow-[0_0_60px_20px_rgba(0,150,255,0.9),0_0_120px_40px_rgba(0,150,255,0.6)] border-2 border-[#00A6FF]"
           />
         </div>
       )}
