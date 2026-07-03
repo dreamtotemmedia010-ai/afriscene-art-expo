@@ -71,10 +71,10 @@ const PageThree = () => {
         <div className="flex flex-col sm:flex-row gap-6">
           <button
             type="button"
-            onClick={toggleFashion}
-            className={`sm:w-1/2 aspect-video rounded-lg border border-gold/20 overflow-hidden cursor-pointer transition-shadow duration-300 ${fashionOn ? "shadow-[0_0_40px_10px_rgba(0,150,255,0.9),0_0_80px_20px_rgba(0,150,255,0.6)] border-[#00A6FF]" : ""}`}
+            onClick={openFashionOverlay}
+            className="sm:w-1/2 aspect-video rounded-lg border border-gold/20 overflow-hidden cursor-pointer"
           >
-            <img src={fashionOn ? fashionFull.url : "/images/page-three-tile1.png"} alt="African futurist streetwear" className="w-full h-full object-cover" />
+            <img src={fashionThumb.url} alt="African futurist streetwear" className="w-full h-full object-cover" />
           </button>
           <audio ref={fashionAudioRef} src={fashionAudio.url} />
           <div className="sm:w-1/2 flex items-center min-w-0">
