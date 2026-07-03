@@ -137,7 +137,7 @@ const PageThree = () => {
       {/* Bottom */}
       <div className="w-full pb-6 px-6 flex items-center justify-between">
         <p className="text-muted-foreground text-xs tracking-widest font-body">Demo</p>
-        <Link to="/page-four" className="shimmer-gold font-display text-2xl tracking-wider hover:opacity-80">
+        <Link to="/page-habitat" className="shimmer-gold font-display text-2xl tracking-wider hover:opacity-80">
           Next →
         </Link>
         <MusicPlayer justify="right" />
