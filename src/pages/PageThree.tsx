@@ -80,7 +80,7 @@ const PageThree = () => {
           <div className="sm:w-1/2 flex items-center min-w-0">
             <div className="w-full p-4 bg-card rounded-lg border border-border min-h-[120px] flex flex-col items-center justify-center gap-2 min-w-0">
               <p className="shimmer-gold font-display text-2xl sm:text-3xl tracking-wider text-center break-words hyphens-auto max-w-full">Fashion</p>
-              <p className="shimmer-gold font-display text-base sm:text-xl tracking-normal sm:tracking-wider text-center leading-relaxed break-words hyphens-auto max-w-full">African Futuristic Street wear. What will be your swag—street, futurism or—BOTH! Full feature debuts in LATE summer. [TAP image to see full image]</p>
+              <p className="shimmer-gold font-display text-base sm:text-xl tracking-normal sm:tracking-wider text-center leading-relaxed break-words hyphens-auto max-w-full">African Futuristic Street wear. What will be your swag—street, futurism or—BOTH! Full feature debuts in LATE summer. [TAP PAUSE at the bottom of the page. TAP image to see full image]</p>
             </div>
           </div>
         </div>
