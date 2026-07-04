@@ -3,6 +3,7 @@ import { useRef, useState, useEffect } from "react";
 import hpOrig from "@/assets/HP_orig.jpg.asset.json";
 import hpLed from "@/assets/HP_LED.jpg.asset.json";
 import hpAudio from "@/assets/IM_Hab_Puz_concept.m4a.asset.json";
+import leReveur from "@/assets/LeReveur_Dujour.png.asset.json";
 
 const PageHabitat = () => {
   const [showLed, setShowLed] = useState(false);
@@ -44,25 +45,52 @@ const PageHabitat = () => {
         </Link>
       </div>
 
-      <div className="flex-1 flex flex-col items-center gap-6 p-6 max-w-5xl mx-auto w-full">
-        <h1 className="shimmer-gold font-display text-3xl sm:text-5xl tracking-wider text-center">
-          Habadasher Puzzle Concept
-        </h1>
-        <p className="shimmer-gold font-display text-base sm:text-lg text-center">
+      <div className="flex-1 flex flex-col items-center gap-8 p-6 max-w-5xl mx-auto w-full">
+        {/* Row 1: Text left, HP image right */}
+        <div className="w-full flex flex-col sm:flex-row items-center gap-6">
+          <div className="flex-1 border border-gold/20 rounded-lg bg-card p-6 flex items-center justify-center">
+            <p className="shimmer-gold font-display text-xl sm:text-2xl tracking-wider text-center">
+              Habadasher Puzzle Concept
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={toggle}
+            className="flex-1 w-full rounded-lg border border-gold/20 overflow-hidden cursor-pointer"
+          >
+            <img
+              src={showLed ? hpLed.url : hpOrig.url}
+              alt={showLed ? "Habitat puzzle with LED highlights" : "Habitat puzzle original sketch"}
+              className="w-full h-auto object-contain"
+            />
+          </button>
+        </div>
+
+        <p className="shimmer-gold font-display text-sm sm:text-base text-center -mt-4">
           (tap the sketch to hear the concept)
         </p>
 
-        <button
-          type="button"
-          onClick={toggle}
-          className="w-full rounded-lg border border-gold/20 overflow-hidden cursor-pointer"
-        >
-          <img
-            src={showLed ? hpLed.url : hpOrig.url}
-            alt={showLed ? "Habitat puzzle with LED highlights" : "Habitat puzzle original sketch"}
-            className="w-full h-auto object-contain"
-          />
-        </button>
+        {/* Row 2: LeReveur image left (linked), text right */}
+        <div className="w-full flex flex-col sm:flex-row items-center gap-6">
+          <a
+            href="https://youtu.be/H8ZToD0nkH8"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 w-full rounded-lg border border-gold/20 overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
+          >
+            <img
+              src={leReveur.url}
+              alt="LeReveur D'Jour"
+              className="w-full h-auto object-contain"
+            />
+          </a>
+          <div className="flex-1 border border-gold/20 rounded-lg bg-card p-6 flex items-center justify-center">
+            <p className="shimmer-gold font-display text-xl sm:text-2xl tracking-wider text-center leading-relaxed">
+              LeReveur D'Jour<br />
+              <span className="text-base sm:text-lg">(a short story about bullying)</span>
+            </p>
+          </div>
+        </div>
 
         <audio ref={audioRef} src={hpAudio.url} onEnded={() => { setShowLed(false); }} />
       </div>
