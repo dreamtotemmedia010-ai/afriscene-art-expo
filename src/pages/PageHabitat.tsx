@@ -87,7 +87,10 @@ const PageHabitat = () => {
           <div className="flex-1 border border-gold/20 rounded-lg bg-card p-6 flex items-center justify-center">
             <p className="shimmer-gold font-display text-xl sm:text-2xl tracking-wider text-center leading-relaxed">
               LeReveur D'Jour<br />
-              <span className="text-base sm:text-lg">(a short story about bullying)</span>
+              <span className="text-base sm:text-lg block">
+                (a short story about bullying)<br />
+                Click on the image
+              </span>
             </p>
           </div>
         </div>
