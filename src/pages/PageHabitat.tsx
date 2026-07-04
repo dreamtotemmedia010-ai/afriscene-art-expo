@@ -46,7 +46,7 @@ const PageHabitat = () => {
 
       <div className="flex-1 flex flex-col items-center gap-6 p-6 max-w-5xl mx-auto w-full">
         <h1 className="shimmer-gold font-display text-3xl sm:text-5xl tracking-wider text-center">
-          Habitat Puzzle Concept
+          Habadasher Puzzle Concept
         </h1>
         <p className="shimmer-gold font-display text-base sm:text-lg text-center">
           (tap the sketch to hear the concept)
