@@ -2,7 +2,7 @@ import MusicPlayer from "@/components/MusicPlayer";
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useRef } from "react";
 import tupacFull from "@/assets/Tupac_in_studio_Full_pic.jpg.asset.json";
-import tupacAudio from "@/assets/IM_Tupacs_secret_agenda_cliff_hanger.m4a.asset.json";
+import tupacAudio from "@/assets/I.M._Tupac_cliffhanger_fin.m4a.asset.json";
 
 const PageTwo = () => {
   const navigate = useNavigate();
