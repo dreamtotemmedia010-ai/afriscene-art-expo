@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useRef, useState } from "react";
 import mediImg from "@/assets/Medi-2.png.asset.json";
-import audioTrack from "@/assets/IM_Rhyme_commentary_fin.mp3.asset.json";
+import audioTrack from "@/assets/I.M._Poetry_and_image_commentary_fin.m4a.asset.json";
 
 const POEM_LINES = [
   "Thoughts on riot, whose ever sighted/",
