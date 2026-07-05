@@ -93,8 +93,9 @@ const PageSix = () => {
           <h2 className="shimmer-gold font-display text-4xl sm:text-6xl md:text-7xl tracking-wider">
             ~~~~The End ~~~~
           </h2>
-          <p className="shimmer-gold font-display text-lg sm:text-2xl md:text-3xl tracking-wide">
-            (African American Art Magazine, interactive magazine)
+          <p className="shimmer-gold font-display text-lg sm:text-2xl md:text-3xl tracking-wide whitespace-pre-line">
+            (African American Arts Festival Magazine)&nbsp;
+            {"\n"}[interactive magazine]
           </p>
         </div>
 
