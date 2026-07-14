@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
-import closingAudio from "@/assets/I.M._Ending_commentary_fin.m4a.asset.json";
+import closingAudio from "@/assets/I.M._Closing_statements_fin_trois.m4a.asset.json";
 
 const VIDEO_URL =
   "https://player.cloudinary.com/embed/?cloud_name=die2n47m2&public_id=Roi_et_Reine_fin_iu6gpt&player[autoplay]=true&player[muted]=false";
