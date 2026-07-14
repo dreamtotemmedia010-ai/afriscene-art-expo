@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useRef, useState, useEffect } from "react";
 import hpOrig from "@/assets/HP_orig.jpg.asset.json";
 import hpLed from "@/assets/HP_LED.jpg.asset.json";
-import hpAudio from "@/assets/I.M._Haberdasher_puzzle_concept_fin_Deux.m4a.asset.json";
+import hpAudio from "@/assets/I.M._Haberdasher_puzzle_concept_fin_Deux_1.m4a.asset.json";
 import leReveur from "@/assets/LeReveur_Dujour.png.asset.json";
 
 const PageHabitat = () => {
