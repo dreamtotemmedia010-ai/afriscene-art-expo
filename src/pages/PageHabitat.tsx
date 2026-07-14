@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useRef, useState, useEffect } from "react";
 import hpOrig from "@/assets/HP_orig.jpg.asset.json";
 import hpLed from "@/assets/HP_LED.jpg.asset.json";
-import hpAudio from "@/assets/I.M._Habadasher_concept_art_fin.m4a.asset.json";
+import hpAudio from "@/assets/I.M._Haberdasher_puzzle_concept_fin_Deux.m4a.asset.json";
 import leReveur from "@/assets/LeReveur_Dujour.png.asset.json";
 
 const PageHabitat = () => {
@@ -56,7 +56,7 @@ const PageHabitat = () => {
           <button
             type="button"
             onClick={toggle}
-            className="flex-1 w-full rounded-lg border border-gold/20 overflow-hidden cursor-pointer"
+            className={`${showLed ? "sm:flex-[2]" : "flex-1"} w-full rounded-lg border border-gold/20 overflow-hidden cursor-pointer transition-all`}
           >
             <img
               src={showLed ? hpLed.url : hpOrig.url}
@@ -66,7 +66,7 @@ const PageHabitat = () => {
           </button>
         </div>
 
-        <p className="shimmer-gold font-display text-sm sm:text-base text-center -mt-4">
+        <p className="shimmer-gold font-display text-xl sm:text-2xl tracking-wider text-center -mt-4">
           (tap the sketch to hear the concept)
         </p>
 
