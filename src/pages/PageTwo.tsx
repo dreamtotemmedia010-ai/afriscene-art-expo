@@ -58,7 +58,7 @@ const PageTwo = () => {
               <p className="shimmer-gold font-display text-2xl sm:text-3xl tracking-wider text-center mb-2">Celebrity News</p>
               <p className="shimmer-gold font-display text-xl sm:text-2xl tracking-wider text-center leading-relaxed">
                 "Thug Life" was a concubine, not the main Wife/ expecting resurrecting truths shedding his Lyme Life!{" "}
-                <span className="text-xs sm:text-sm italic">(tap on Tupac)</span>
+                <span className="text-xl sm:text-2xl italic">(tap on Tupac)</span>
               </p>
             </div>
           </div>
