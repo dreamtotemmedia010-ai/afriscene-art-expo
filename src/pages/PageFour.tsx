@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useRef, useState } from "react";
 import mediImg from "@/assets/Medi-2.png.asset.json";
 import audioTrack from "@/assets/I.M._Poetry_and_image_commentary_fin.m4a.asset.json";
+import SEO from "@/components/SEO";
 
 const POEM_LINES = [
   "Thoughts on riot, whose ever sighted/",
@@ -31,6 +32,11 @@ const PageFour = () => {
 
   return (
     <div className="min-h-screen bg-background flex flex-col animate-fade-in-slow">
+      <SEO
+        title="Interactive Poetry — AAAFM Magazine"
+        description="Tap to play spoken-word commentary on original poetry — the interactive poetry page of the African American Arts Festival Magazine."
+        path="/page-four"
+      />
       <div className="pt-6 px-6 flex justify-between items-center">
         <Link to="/page-habitat" className="shimmer-gold font-display text-2xl tracking-wider hover:opacity-80">
           ← Back
