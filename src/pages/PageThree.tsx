@@ -59,6 +59,11 @@ const PageThree = () => {
 
   return (
     <div className="min-h-screen bg-background flex flex-col touch-pinch-zoom animate-fade-in-slow">
+      <SEO
+        title="Fashion & Art — AAAFM Interactive Magazine"
+        description="African futuristic streetwear and Derrick Carter's Melanine dawn art — explore fashion and art in the interactive AAAFM."
+        path="/page-three"
+      />
       {/* Header */}
       <div className="pt-6 px-6">
         <Link to="/page-two" className="shimmer-gold font-display text-2xl tracking-wider hover:opacity-80">
