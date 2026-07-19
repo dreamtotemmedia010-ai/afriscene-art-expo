@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
-import closingAudio from "@/assets/I.M._Closing_statements_fin_trois-2.m4a.asset.json";
+import closingAudio from "@/assets/I.M._AAAFMi_closing_fin_trois_copy.m4a.asset.json";
 import SEO from "@/components/SEO";
 
 const VIDEO_URL =
