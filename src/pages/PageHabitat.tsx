@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import SEO from "@/components/SEO";
 import { useRef, useState, useEffect } from "react";
 import hpOrig from "@/assets/HP_orig.jpg.asset.json";
 import hpLed from "@/assets/HP_LED.jpg.asset.json";
@@ -36,6 +37,11 @@ const PageHabitat = () => {
 
   return (
     <div className="min-h-screen bg-background flex flex-col animate-fade-in-slow">
+      <SEO
+        title="Habadasher Puzzle Concept — AAAFM Interactive"
+        description="Habadasher puzzle concept art and LeReveur D'Jour — a short story about bullying, from the interactive AAAFM."
+        path="/page-habitat"
+      />
       <div className="pt-6 px-6 flex justify-between items-center">
         <Link to="/page-three" className="shimmer-gold font-display text-2xl tracking-wider hover:opacity-80">
           ← Back

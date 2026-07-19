@@ -1,5 +1,6 @@
 import MusicPlayer from "@/components/MusicPlayer";
 import { Link } from "react-router-dom";
+import SEO from "@/components/SEO";
 import derrickArt from "@/assets/Derrick_Carter.jpeg.asset.json";
 import derrickArtFull from "@/assets/Derrick_Carter_full.jpeg.asset.json";
 import artAudio from "@/assets/I.M._Art_page_Derrick_Carter_fin_copy.m4a.asset.json";
@@ -58,6 +59,11 @@ const PageThree = () => {
 
   return (
     <div className="min-h-screen bg-background flex flex-col touch-pinch-zoom animate-fade-in-slow">
+      <SEO
+        title="Fashion & Art — AAAFM Interactive Magazine"
+        description="African futuristic streetwear and Derrick Carter's Melanine dawn art — explore fashion and art in the interactive AAAFM."
+        path="/page-three"
+      />
       {/* Header */}
       <div className="pt-6 px-6">
         <Link to="/page-two" className="shimmer-gold font-display text-2xl tracking-wider hover:opacity-80">

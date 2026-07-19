@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import throneImg from "@/assets/throne.png";
 import RotatingCube from "@/components/RotatingCube";
 import MusicPlayer from "@/components/MusicPlayer";
+import SEO from "@/components/SEO";
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -79,6 +80,12 @@ const LandingPage = () => {
   };
 
   return (
+    <>
+    <SEO
+      title="African American Arts Festival Magazine — Interactive"
+      description="Welcome to your first interactive African American Arts Festival Magazine — celebrity news, art, fashion, poetry, and culture in one immersive experience."
+      path="/"
+    />
     <div className="min-h-screen bg-background overflow-hidden touch-pinch-zoom animate-fade-in">
       <div
         className={`min-h-screen flex flex-col items-center will-change-transform ${
@@ -133,6 +140,7 @@ const LandingPage = () => {
       </div>
       </div>
     </div>
+    </>
   );
 };
 

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import closingAudio from "@/assets/I.M._Closing_statements_fin_trois.m4a.asset.json";
+import SEO from "@/components/SEO";
 
 const VIDEO_URL =
   "https://player.cloudinary.com/embed/?cloud_name=die2n47m2&public_id=Roi_et_Reine_fin_iu6gpt&player[autoplay]=true&player[muted]=false";
@@ -60,6 +61,11 @@ const PageSix = () => {
 
   return (
     <div className="min-h-screen bg-background flex flex-col animate-fade-in-slow">
+      <SEO
+        title="The End — AAAFM Interactive Magazine"
+        description="Closing feature of the African American Arts Festival Magazine — Roi et Reine video and closing commentary."
+        path="/page-six"
+      />
       <div className="pt-6 px-6">
         <Link to="/page-five" className="shimmer-gold font-display text-2xl tracking-wider hover:opacity-80">
           ← Back
