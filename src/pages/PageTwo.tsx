@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState, useRef } from "react";
 import tupacFull from "@/assets/Tupac_in_studio_Full_pic.jpg.asset.json";
 import tupacAudio from "@/assets/I.M._Tupac_cliffhanger_fin-2.m4a.asset.json";
+import SEO from "@/components/SEO";
 
 const PageTwo = () => {
   const navigate = useNavigate();
@@ -33,6 +34,12 @@ const PageTwo = () => {
   };
 
   return (
+    <>
+    <SEO
+      title="Celebrity News & Politics — AAAFM Interactive"
+      description="Celebrity news and political commentary in the African American Arts Festival Magazine — Tupac cliffhanger, discernment over rhetoric."
+      path="/page-two"
+    />
     <div className="min-h-screen bg-background overflow-hidden touch-pinch-zoom animate-fade-in">
       <div className={`min-h-screen flex flex-col ${rolling ? "page-roll-up" : ""}`}>
       {/* Header */}
