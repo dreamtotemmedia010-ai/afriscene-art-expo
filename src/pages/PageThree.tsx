@@ -104,7 +104,7 @@ const PageThree = () => {
               >
                 Art
               </button>
-              <p className="shimmer-gold font-display text-base sm:text-xl tracking-wider text-center opacity-80">(click/tap "Art")</p>
+              <p className="shimmer-gold font-display text-xl sm:text-2xl tracking-wider text-center opacity-80">(click/tap "Art")</p>
               <p className="shimmer-gold font-display text-base sm:text-xl tracking-normal sm:tracking-wider text-center leading-relaxed break-words hyphens-auto max-w-full">"Danse a l'aube de la melanine" (Melanine dawn dancing) [not actual name] by Derrick Carter</p>
             </div>
           </div>
