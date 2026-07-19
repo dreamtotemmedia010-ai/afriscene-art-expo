@@ -110,6 +110,7 @@ const PageTwo = () => {
       )}
       </div>
     </div>
+    </>
   );
 };
 
