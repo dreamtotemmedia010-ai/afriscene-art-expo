@@ -1,5 +1,6 @@
 import MusicPlayer from "@/components/MusicPlayer";
 import { Link } from "react-router-dom";
+import SEO from "@/components/SEO";
 import derrickArt from "@/assets/Derrick_Carter.jpeg.asset.json";
 import derrickArtFull from "@/assets/Derrick_Carter_full.jpeg.asset.json";
 import artAudio from "@/assets/I.M._Art_page_Derrick_Carter_fin_copy.m4a.asset.json";
