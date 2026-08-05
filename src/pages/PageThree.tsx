@@ -58,7 +58,7 @@ const PageThree = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background flex flex-col touch-pinch-zoom animate-fade-in-slow">
+    <div className="min-h-screen bg-background flex flex-col animate-fade-in-slow">
       <SEO
         title="Fashion & Art — AAAFM Interactive Magazine"
         description="African futuristic streetwear and Derrick Carter's Melanine dawn art — explore fashion and art in the interactive AAAFM."
@@ -116,13 +116,13 @@ const PageThree = () => {
       {artOpen && (
         <div
           onClick={closeArt}
-          className="fixed inset-0 z-50 bg-background/95 flex items-center justify-center p-4 animate-fade-in cursor-pointer touch-pinch-zoom overflow-auto"
+          className="fixed inset-0 z-50 bg-background/95 flex items-center justify-center p-4 animate-fade-in cursor-pointer overflow-auto"
         >
           <img
             src={derrickArtFull.url}
             alt="Danse a l'aube de la melanine by Derrick Carter"
             style={{ aspectRatio: "9 / 19.5" }}
-            className="h-full max-h-screen w-auto object-contain rounded-lg animate-scale-in touch-pinch-zoom"
+            className="h-full max-h-screen w-auto object-contain rounded-lg animate-scale-in"
           />
         </div>
       )}

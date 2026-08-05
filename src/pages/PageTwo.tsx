@@ -40,7 +40,7 @@ const PageTwo = () => {
       description="Celebrity news and political commentary in the African American Arts Festival Magazine — Tupac cliffhanger, discernment over rhetoric."
       path="/page-two"
     />
-    <div className="min-h-screen bg-background overflow-hidden touch-pinch-zoom animate-fade-in">
+    <div className="min-h-screen bg-background overflow-x-hidden animate-fade-in">
       <div className={`min-h-screen flex flex-col ${rolling ? "page-roll-up" : ""}`}>
       {/* Header */}
       <div className="pt-6 px-6">
