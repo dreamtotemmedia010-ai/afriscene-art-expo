@@ -60,7 +60,8 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Cormorant Garamond', serif;
-    touch-action: manipulation;
+    touch-action: pan-x pan-y pinch-zoom;
+    -webkit-overflow-scrolling: touch;
   }
 
   h1, h2, h3 {

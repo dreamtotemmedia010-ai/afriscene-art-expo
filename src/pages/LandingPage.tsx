@@ -86,7 +86,7 @@ const LandingPage = () => {
       description="Welcome to your first interactive African American Arts Festival Magazine — celebrity news, art, fashion, poetry, and culture in one immersive experience."
       path="/"
     />
-    <div className="min-h-screen bg-background overflow-hidden touch-pinch-zoom animate-fade-in">
+    <div className="min-h-screen bg-background overflow-x-hidden animate-fade-in">
       <div
         className={`min-h-screen flex flex-col items-center will-change-transform ${
           transitioning ? "page-slide-out-left" : ""
